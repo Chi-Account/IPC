@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chi.serverapplication">
+
+    <uses-permission android:name="com.chi.serverapplication.permission.BOOK_SERVICE" />
+
+    <permission
+        android:name="com.chi.serverapplication.permission.BOOK_SERVICE"
+        android:protectionLevel="normal" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".messenger.MessengerService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.chi.serverapplication.ACTION_MESSENGER_SERVICE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".aidl.BookService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.chi.serverapplication.ACTION_BOOK_SERVICE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".binderpool.AIDLService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.chi.serverapplication.ACTION_AIDL_SERVICE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
